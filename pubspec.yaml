@@ -1,29 +1,29 @@
 name: cross_logger
 description: "A new Flutter project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/RajKavadia/cross_logger
+repository: https://github.com/RajKavadia/cross_logger
 
 environment:
-  sdk: ^3.7.2
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  idb_shim: any  # For database functionality
-  logger: any  # For logging functionality
-  encrypt: any  # For encryption
+  idb_shim: ^2.6.5  # For database functionality
+  logger: ^2.5.0  # For logging functionality
+  encrypt: ^5.0.3  # For encryption
   web_socket_client: ^0.2.0
-  http: any
-  http_parser: any
-  mime: any
+  http: ^1.3.0
+  http_parser: ^4.1.2
+  mime: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  test: ^any
   mockito: ^5.0.17
 
 # For information on the generic Dart part of this file, see the

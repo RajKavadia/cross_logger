@@ -1,39 +1,44 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# 📝 Encrypted Logging Package (Flutter / Dart)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A lightweight, modular logging system for Flutter and Dart applications that supports:
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+- ✅ **Local storage** via IndexedDB (using `idb_shim`)
+- 🔒 **Encryption** using AES (via `encrypt`)
+- 🌐 **WebSocket real-time logging**
+- ☁️ **HTTP blob upload** support
+- 📦 Built for web-first apps with expandability for mobile support
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+## 📦 Installation
+Add the following dependencies to your `pubspec.yaml`:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## 🧱 Architecture Overview
+- This package is structured with clean architecture principles:
+- EncryptionService: Handles AES encryption/decryption.
+- LogEntry: Data model with encrypted log message.
+- Log: Domain entity.
+- LocalDatabase: IndexedDB wrapper for storing logs.
+- HTTPHandler: Uploads logs as files to a remote server.
+- WebSocketClient: Sends logs over WebSocket.
+- LogUseCase: Orchestrates log flow (store, encrypt, send).
+- LoggerFacade: One-stop interface to log messages.
 
-## Getting started
+## 🚀 Usage
+1. Initialize the logger
+   final logger = await LoggerFacade.initialize(
+   'ws://your-websocket-url',
+   true, // encryption enabled
+   );
+2. await logger.log("Hello, this is a test log!");
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## ✅ Features
+Feature | Status
+Local logging | ✅ Done
+AES Encryption | ✅ Done
+WebSocket send | ✅ Done
+HTTP blob upload | ✅ Done
+Test coverage | ✅ Done
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## ✨ Contributions
+PRs welcome! Feel free to fork, improve, or extend the system with new logging channels (e.g. Firebase, Sentry, etc.)
